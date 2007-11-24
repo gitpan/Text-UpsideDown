@@ -6,7 +6,7 @@ use charnames ':full';
 use base 'Exporter';
 
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 our @EXPORT = ('upside_down');
@@ -91,6 +91,8 @@ sub upside_down {
 
 __END__
 
+
+
 =head1 NAME
 
 Text::UpsideDown - flip text upside-down using Unicode
@@ -120,12 +122,16 @@ mathematics and the like.
 If you talk about this module in blogs, on del.icio.us or anywhere else,
 please use the C<textupsidedown> tag.
 
+=head1 VERSION 
+                   
+This document describes version 0.02 of L<Text::UpsideDown>.
+
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests to
-C<bug-text-upsidedown@rt.cpan.org>, or through the web interface at
+C<<bug-text-upsidedown@rt.cpan.org>>, or through the web interface at
 L<http://rt.cpan.org>.
 
 =head1 INSTALLATION
@@ -148,6 +154,7 @@ Copyright 2007 by Marcel GrE<uuml>nauer
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
+
 
 =cut
 

@@ -1,41 +1,50 @@
 NAME
     Text::UpsideDown - Flip text upside-down using Unicode
 
+VERSION
+    version 1.100820
+
 SYNOPSIS
         use Text::UpsideDown;
         print upside_down("marcel gruenauer");
 
 DESCRIPTION
-    This module exports only one function:
+    This module exports only one function.
 
-    "upside_down"
-        Takes a string and returns a string that looks like the characters
-        have been turned upside-down and reversed so it could be read by
-        turning your head upside-down. It uses special Unicode characters
-        originally intended for mathematics and the like.
-
-BUGS AND LIMITATIONS
-    No bugs have been reported.
-
-    Please report any bugs or feature requests through the web interface at
-    <http://rt.cpan.org>.
+FUNCTIONS
+  upside_down
+    Takes a string and returns a string that looks like the characters have
+    been turned upside-down and reversed so it could be read by turning your
+    head upside-down. It uses special Unicode characters originally intended
+    for mathematics and the like.
 
 INSTALLATION
     See perlmodinstall for information and options on installing Perl
     modules.
 
+BUGS AND LIMITATIONS
+    No bugs have been reported.
+
+    Please report any bugs or feature requests through the web interface at
+    <http://rt.cpan.org/Public/Dist/Display.html?Name=Text-UpsideDown>.
+
 AVAILABILITY
     The latest version of this module is available from the Comprehensive
     Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
-    CPAN site near you. Or see
+    CPAN site near you, or see
     <http://search.cpan.org/dist/Text-UpsideDown/>.
 
-AUTHORS
-    Marcel Grünauer, "<marcel@cpan.org>"
+    The development version lives at
+    <http://github.com/hanekomu/Text-UpsideDown/>. Instead of sending
+    patches, please fork this project using the standard git and github
+    infrastructure.
+
+AUTHOR
+      Marcel Gruenauer <marcel@cpan.org>
 
 COPYRIGHT AND LICENSE
-    Copyright 2007-2009 by the authors.
+    This software is copyright (c) 2007 by Marcel Gruenauer.
 
-    This library is free software; you can redistribute it and/or modify it
-    under the same terms as Perl itself.
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 

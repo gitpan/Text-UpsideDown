@@ -1,9 +1,10 @@
-This is the Perl module Text::UpsideDown.
+
+This is the Perl distribution Text-UpsideDown.
 
 ## Installation
 
-Text::UpsideDown installation is straightforward. If your CPAN shell is set up,
-you should just be able to do
+Text-UpsideDown installation is straightforward.
+If your CPAN shell is set up, you should just be able to do
 
     % cpan Text::UpsideDown
 
@@ -18,10 +19,9 @@ Then install it:
 
 ## Documentation
 
-Text::UpsideDown documentation is available as in POD. So you can do:
+Text-UpsideDown documentation is available as in POD.
+So you can do:
 
     % perldoc Text::UpsideDown
 
-to read the documentation online with your favorite pager.
-
-Marcel Gruenauer
+to read the documentation with your favorite pager.

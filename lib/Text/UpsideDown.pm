@@ -1,33 +1,21 @@
+package Text::UpsideDown;
 use 5.008;
 use strict;
 use warnings;
-
-package Text::UpsideDown;
-our $VERSION = '1.100820';
-# ABSTRACT: Flip text upside-down using Unicode
-use charnames ':full';
+use charnames qw(:full);
 use Exporter qw(import);
-our @EXPORT  = ('upside_down');
+our @EXPORT = qw(upside_down);
+# ABSTRACT: Flip text upside-down using Unicode
+our $VERSION = '1.11_1'; # VERSION
 
-# mapping taken from
-# http://www.fileformat.info/convert/text/upside-down-map.htm
+
+# Mapping taken from:
+#  - http://www.fileformat.info/convert/text/upside-down-map.htm
+#  - http://en.wikipedia.org/wiki/Transformation_of_text
+#  - http://www.upsidedowntext.com/unicode
 #
 # Letters that don't change in upside-down view (like 'H', 'I') aren't given.
 our %upside_down_map = (
-    '!' => "\N{INVERTED EXCLAMATION MARK}",
-    '"' => "\N{DOUBLE LOW-9 QUOTATION MARK}",
-    '&' => "\N{TURNED AMPERSAND}",
-    "'" => ',',
-    '(' => "\N{RIGHT PARENTHESIS}",
-    '.' => "\N{DOT ABOVE}",
-    '/' => '\\',
-    '3' => "\N{LATIN CAPITAL LETTER OPEN E}",
-    '6' => '9',
-
-    # '7' => "\N{LATIN CAPITAL LETTER L WITH MIDDLE TILDE}",
-    ';'            => "\N{ARABIC SEMICOLON}",
-    '<'            => '>',
-    '?'            => "\N{INVERTED QUESTION MARK}",
     'A'            => "\N{FOR ALL}",
     'B'            => "\N{GREEK SMALL LETTER XI}",
     'C'            => "\N{ROMAN NUMERAL REVERSED ONE HUNDRED}",
@@ -38,7 +26,7 @@ our %upside_down_map = (
     'J'            => "\N{LATIN SMALL LETTER LONG S}",
     'K'            => "\N{RIGHT NORMAL FACTOR SEMIDIRECT PRODUCT}",
     'L'            => "\N{TURNED SANS-SERIF CAPITAL L}",
-    'M'            => 'W',
+    'M'            => "\N{LATIN EPIGRAPHIC LETTER INVERTED M}",
     'N'            => "\N{LATIN LETTER SMALL CAPITAL REVERSED N}",
     'P'            => "\N{CYRILLIC CAPITAL LETTER KOMI DE}",
     'Q'            => "\N{GREEK CAPITAL LETTER OMICRON WITH TONOS}",
@@ -47,8 +35,6 @@ our %upside_down_map = (
     'U'            => "\N{INTERSECTION}",
     'V'            => "\N{GREEK LETTER SMALL CAPITAL LAMDA}",
     'Y'            => "\N{TURNED SANS-SERIF CAPITAL Y}",
-    '['            => ']',
-    '_'            => "\N{OVERLINE}",
     'a'            => "\N{LATIN SMALL LETTER TURNED A}",
     'b'            => 'q',
     'c'            => "\N{LATIN SMALL LETTER OPEN O}",
@@ -68,24 +54,45 @@ our %upside_down_map = (
     'v'            => "\N{LATIN SMALL LETTER TURNED V}",
     'w'            => "\N{LATIN SMALL LETTER TURNED W}",
     'y'            => "\N{LATIN SMALL LETTER TURNED Y}",
-    '{'            => '}',
-    "\N{UNDERTIE}" => "\N{CHARACTER TIE}",
-    "\N{LEFT SQUARE BRACKET WITH QUILL}" =>
-      "\N{RIGHT SQUARE BRACKET WITH QUILL}",
+
+    '!' => "\N{INVERTED EXCLAMATION MARK}",
+    '"' => "\N{DOUBLE LOW-9 QUOTATION MARK}",
+    '&' => "\N{TURNED AMPERSAND}",
+    q{'} => ',',
+    '.' => "\N{DOT ABOVE}",
+    '/' => '\\',
+    '^' => "\N{LOGICAL OR}",
+    '*' => "\N{LOW ASTERISK}",
+    '1' => "\N{DOWNWARDS HARPOON WITH BARB RIGHTWARDS}",
+    '3' => "\N{LATIN CAPITAL LETTER OPEN E}",
+    '6' => '9',
+    '7' => "\N{BOPOMOFO LETTER ENG}",
+    ';' => "\N{ARABIC SEMICOLON}",
+    '?' => "\N{INVERTED QUESTION MARK}",
+    '(' => ')',
+    '[' => ']',
+    '{' => '}',
+    '<' => '>',
+    '_' => "\N{OVERLINE}",
+    "\N{UNDERTIE}"  => "\N{CHARACTER TIE}",
+    "\N{LEFT SQUARE BRACKET WITH QUILL}" => "\N{RIGHT SQUARE BRACKET WITH QUILL}",
     "\N{THEREFORE}" => "\N{BECAUSE}",
 );
 %upside_down_map = (%upside_down_map, reverse %upside_down_map);
+
 
 sub upside_down {
     my $text = shift;
     $text =~ s/(.)/ exists $upside_down_map{$1} ? $upside_down_map{$1} : $1/ge;
     join '' => reverse split '', $text;
 }
-1;
 
+1;
 
 __END__
 =pod
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -93,7 +100,7 @@ Text::UpsideDown - Flip text upside-down using Unicode
 
 =head1 VERSION
 
-version 1.100820
+version 1.11_1
 
 =head1 SYNOPSIS
 
@@ -102,7 +109,7 @@ version 1.100820
 
 =head1 DESCRIPTION
 
-This module exports only one function.
+This module exports only one function: C<upside_down>.
 
 =head1 FUNCTIONS
 
@@ -113,36 +120,48 @@ turned upside-down and reversed so it could be read by turning your head
 upside-down. It uses special Unicode characters originally intended for
 mathematics and the like.
 
-=head1 INSTALLATION
+=head1 AVAILABILITY
 
-See perlmodinstall for information and options on installing Perl modules.
+The project homepage is L<http://search.cpan.org/dist/Text-UpsideDown>.
+
+The latest version of this module is available from the Comprehensive Perl
+Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
+site near you, or see L<http://search.cpan.org/dist/Text-UpsideDown/>.
+
+The development version lives at L<http://github.com/doherty/Text-UpsideDown>
+and may be cloned from L<git://github.com/doherty/Text-UpsideDown.git>.
+Instead of sending patches, please fork this project using the standard
+git and github infrastructure.
+
+=head1 SOURCE
+
+The development version is on github at L<http://github.com/doherty/Text-UpsideDown>
+and may be cloned from L<git://github.com/doherty/Text-UpsideDown.git>
 
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org/Public/Dist/Display.html?Name=Text-UpsideDown>.
+L<https://github.com/doherty/Text-UpsideDown/issues>.
 
-=head1 AVAILABILITY
+=head1 AUTHORS
 
-The latest version of this module is available from the Comprehensive Perl
-Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you, or see
-L<http://search.cpan.org/dist/Text-UpsideDown/>.
+=over 4
 
-The development version lives at
-L<http://github.com/hanekomu/Text-UpsideDown/>.
-Instead of sending patches, please fork this project using the standard git
-and github infrastructure.
+=item *
 
-=head1 AUTHOR
+Mike Doherty <doherty@cpan.org>
 
-  Marcel Gruenauer <marcel@cpan.org>
+=item *
+
+Marcel Grünauer <marcel@cpan.org>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2007 by Marcel Gruenauer.
+This software is copyright (c) 2007 by Marcel Grünauer and Mike Doherty.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

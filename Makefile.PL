@@ -2,42 +2,59 @@
 use strict;
 use warnings;
 
- BEGIN { require 5.008; } 
+use 5.008;
 
-use ExtUtils::MakeMaker 6.11;
+use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-                       'test' => {
-                                   'TESTS' => 't/*.t'
-                                 },
-                       'NAME' => 'Text::UpsideDown',
-                       'DISTNAME' => 'Text-UpsideDown',
-                       'CONFIGURE_REQUIRES' => {
-                                                 'ExtUtils::MakeMaker' => '6.11'
-                                               },
-                       'AUTHOR' => 'Marcel Gruenauer <marcel@cpan.org>',
-                       'BUILD_REQUIRES' => {},
-                       'ABSTRACT' => 'Flip text upside-down using Unicode',
-                       'EXE_FILES' => [],
-                       'VERSION' => '1.100820',
-                       'PREREQ_PM' => {
-                                        'Scalar::Util' => '0',
-                                        'English' => '0',
-                                        'charnames' => '0',
-                                        'Exporter' => '0',
-                                        'Carp' => '0',
-                                        'Test::More' => '0.88',
-                                        'File::Find' => '0',
-                                        'File::Temp' => '0'
-                                      },
-                       'LICENSE' => 'perl'
-                     );
+  'ABSTRACT' => 'Flip text upside-down using Unicode',
+  'AUTHOR' => 'Mike Doherty <doherty@cpan.org>, Marcel Grünauer <marcel@cpan.org>',
+  'BUILD_REQUIRES' => {
+    'File::Find' => '0',
+    'File::Temp' => '0',
+    'Test::More' => '0'
+  },
+  'CONFIGURE_REQUIRES' => {
+    'ExtUtils::MakeMaker' => '6.30'
+  },
+  'DISTNAME' => 'Text-UpsideDown',
+  'EXE_FILES' => [
+    'bin/ud'
+  ],
+  'LICENSE' => 'perl',
+  'NAME' => 'Text::UpsideDown',
+  'PREREQ_PM' => {
+    'Exporter' => '0',
+    'Getopt::Long' => '0',
+    'Pod::Usage' => '0',
+    'charnames' => '0',
+    'open' => '0',
+    'utf8' => '0'
+  },
+  'VERSION' => '1.11_1',
+  'test' => {
+    'TESTS' => 't/*.t'
+  }
+);
 
 
-delete $WriteMakefileArgs{LICENSE}
-  unless eval { ExtUtils::MakeMaker->VERSION(6.31) };
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
+
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
 
 WriteMakefile(%WriteMakefileArgs);
 

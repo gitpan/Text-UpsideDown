@@ -1,3 +1,4 @@
+Build.PL
 Changes
 LICENSE
 MANIFEST
@@ -6,6 +7,7 @@ META.yml
 Makefile.PL
 README
 bin/ud
+dist.ini
 lib/Text/UpsideDown.pm
 t/00-compile.t
 t/01_all.t

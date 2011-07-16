@@ -6,11 +6,13 @@ author:
 build_requires:
   File::Find: 0
   File::Temp: 0
+  Module::Build: 0.3601
   Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
+  Module::Build: 0.3601
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200008, CPAN::Meta::Converter version 2.110440'
+generated_by: 'Dist::Zilla version 4.200009, CPAN::Meta::Converter version 2.110930'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -26,6 +28,6 @@ requires:
   utf8: 0
 resources:
   bugtracker: https://github.com/doherty/Text-UpsideDown/issues
-  homepage: http://search.cpan.org/dist/Text-UpsideDown
+  homepage: http://p3rl.org/Text::UpsideDown
   repository: git://github.com/doherty/Text-UpsideDown.git
-version: 1.11_1
+version: 1.11_2

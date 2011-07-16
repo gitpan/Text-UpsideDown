@@ -6,7 +6,7 @@ use charnames qw(:full);
 use Exporter qw(import);
 our @EXPORT = qw(upside_down);
 # ABSTRACT: Flip text upside-down using Unicode
-our $VERSION = '1.11_1'; # VERSION
+our $VERSION = '1.11_2'; # VERSION
 
 
 # Mapping taken from:
@@ -26,7 +26,7 @@ our %upside_down_map = (
     'J'            => "\N{LATIN SMALL LETTER LONG S}",
     'K'            => "\N{RIGHT NORMAL FACTOR SEMIDIRECT PRODUCT}",
     'L'            => "\N{TURNED SANS-SERIF CAPITAL L}",
-    'M'            => "\N{LATIN EPIGRAPHIC LETTER INVERTED M}",
+    'M'            => 'W',
     'N'            => "\N{LATIN LETTER SMALL CAPITAL REVERSED N}",
     'P'            => "\N{CYRILLIC CAPITAL LETTER KOMI DE}",
     'Q'            => "\N{GREEK CAPITAL LETTER OMICRON WITH TONOS}",
@@ -100,7 +100,7 @@ Text::UpsideDown - Flip text upside-down using Unicode
 
 =head1 VERSION
 
-version 1.11_1
+version 1.11_2
 
 =head1 SYNOPSIS
 
@@ -122,7 +122,7 @@ mathematics and the like.
 
 =head1 AVAILABILITY
 
-The project homepage is L<http://search.cpan.org/dist/Text-UpsideDown>.
+The project homepage is L<http://p3rl.org/Text::UpsideDown>.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN

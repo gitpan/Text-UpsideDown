@@ -1,5 +1,8 @@
 Revision history for Perl extension Text-UpsideDown
 
+1.11_2    2011-07-15
+    - Use W/M as inversions to avoid bumping perl version required
+
 1.11_1    2011-07-07
     - Added a simple command line script
     - Added a couple better upside-down conversions

@@ -5,7 +5,7 @@
       "Marcel Gr\u00c3\u00bcnauer <marcel@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.200008, CPAN::Meta::Converter version 2.110440",
+   "generated_by" : "Dist::Zilla version 4.200009, CPAN::Meta::Converter version 2.110930",
    "license" : [
       "perl_5"
    ],
@@ -15,9 +15,15 @@
    },
    "name" : "Text-UpsideDown",
    "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.30"
+            "ExtUtils::MakeMaker" : "6.30",
+            "Module::Build" : "0.3601"
          }
       },
       "runtime" : {
@@ -44,13 +50,13 @@
       "bugtracker" : {
          "web" : "https://github.com/doherty/Text-UpsideDown/issues"
       },
-      "homepage" : "http://search.cpan.org/dist/Text-UpsideDown",
+      "homepage" : "http://p3rl.org/Text::UpsideDown",
       "repository" : {
          "type" : "git",
          "url" : "git://github.com/doherty/Text-UpsideDown.git",
          "web" : "https://github.com/doherty/Text-UpsideDown"
       }
    },
-   "version" : "1.11_1"
+   "version" : "1.11_2"
 }
 

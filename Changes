@@ -1,5 +1,9 @@
 Revision history for Perl extension Text-UpsideDown
 
+1.11_3    2011-07-17
+    - Speed enhancements [Aristotle Pagaltzis]
+    - More speed enhancement
+
 1.11_2    2011-07-15
     - Use W/M as inversions to avoid bumping perl version required
 

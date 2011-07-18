@@ -30,4 +30,4 @@ resources:
   bugtracker: https://github.com/doherty/Text-UpsideDown/issues
   homepage: http://p3rl.org/Text::UpsideDown
   repository: git://github.com/doherty/Text-UpsideDown.git
-version: 1.11_3
+version: 1.20

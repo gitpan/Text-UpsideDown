@@ -6,7 +6,7 @@ use charnames qw(:full);
 use Exporter qw(import);
 our @EXPORT = qw(upside_down);
 # ABSTRACT: Flip text upside-down using Unicode
-our $VERSION = '1.11_3'; # VERSION
+our $VERSION = '1.20'; # VERSION
 
 
 # Mapping taken from:
@@ -81,13 +81,16 @@ our %upside_down_map = (
 %upside_down_map = (%upside_down_map, reverse %upside_down_map);
 
 
-my $tr = quotemeta join '', keys %upside_down_map;
-my $replace = quotemeta join '', values %upside_down_map;
+my $tr = eval( ## no critic (BuiltinFunctions::ProhibitStringyEval)
+    sprintf 'sub { tr/%s/%s/ }',
+        map { quotemeta join '', @{ $_ } }
+        [ keys %upside_down_map ], [ values %upside_down_map ]
+);
+
 sub upside_down {
-    local $_ = shift;
-    eval "tr/$tr/$replace/"; ## no critic (BuiltinFunctions::ProhibitStringyEval)
-    die $@ if $@;
-    return scalar reverse;
+    my $text = shift;
+    $tr->() for $text;
+    return scalar reverse $text;
 }
 
 1;
@@ -103,7 +106,7 @@ Text::UpsideDown - Flip text upside-down using Unicode
 
 =head1 VERSION
 
-version 1.11_3
+version 1.20
 
 =head1 SYNOPSIS
 

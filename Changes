@@ -1,5 +1,8 @@
 Revision history for Perl extension Text-UpsideDown
 
+1.21      2013-02-21
+    - / upside down is still / [kedmon, GH #3]
+
 1.20_1    2011-12-24
     - Fix test suite for Windows
 

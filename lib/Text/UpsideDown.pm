@@ -6,7 +6,7 @@ use charnames qw(:full);
 use Exporter qw(import);
 our @EXPORT = qw(upside_down);
 # ABSTRACT: Flip text upside-down using Unicode
-our $VERSION = '1.20_1'; # VERSION
+our $VERSION = '1.21'; # VERSION
 
 
 # Mapping taken from:
@@ -60,7 +60,6 @@ our %upside_down_map = (
     '&' => "\N{TURNED AMPERSAND}",
     q{'} => ',',
     '.' => "\N{DOT ABOVE}",
-    '/' => '\\',
     '^' => "\N{LOGICAL OR}",
     '*' => "\N{LOW ASTERISK}",
     '1' => "\N{DOWNWARDS HARPOON WITH BARB RIGHTWARDS}",
@@ -96,6 +95,7 @@ sub upside_down {
 1;
 
 __END__
+
 =pod
 
 =encoding utf-8
@@ -106,7 +106,7 @@ Text::UpsideDown - Flip text upside-down using Unicode
 
 =head1 VERSION
 
-version 1.20_1
+version 1.21
 
 =head1 SYNOPSIS
 
@@ -128,16 +128,11 @@ mathematics and the like.
 
 =head1 AVAILABILITY
 
-The project homepage is L<http://p3rl.org/Text::UpsideDown>.
+The project homepage is L<http://metacpan.org/release/Text-UpsideDown/>.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you, or see L<http://search.cpan.org/dist/Text-UpsideDown/>.
-
-The development version lives at L<http://github.com/doherty/Text-UpsideDown>
-and may be cloned from L<git://github.com/doherty/Text-UpsideDown.git>.
-Instead of sending patches, please fork this project using the standard
-git and github infrastructure.
+site near you, or see L<https://metacpan.org/module/Text::UpsideDown/>.
 
 =head1 SOURCE
 
@@ -146,10 +141,8 @@ and may be cloned from L<git://github.com/doherty/Text-UpsideDown.git>
 
 =head1 BUGS AND LIMITATIONS
 
-No bugs have been reported.
-
-Please report any bugs or feature requests through the web interface at
-L<https://github.com/doherty/Text-UpsideDown/issues>.
+You can make new bug reports, and view existing ones, through the
+web interface at L<https://github.com/doherty/Text-UpsideDown/issues>.
 
 =head1 AUTHORS
 
@@ -173,4 +166,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

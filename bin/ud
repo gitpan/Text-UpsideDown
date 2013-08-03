@@ -5,7 +5,7 @@ use warnings;
 
 # PODNAME: ud
 # ABSTRACT: print your text Upside Down
-our $VERSION = '1.21'; # VERSION
+our $VERSION = '1.22'; # VERSION
 
 use Text::UpsideDown qw(upside_down);
 use Getopt::Long qw(GetOptions);
@@ -48,7 +48,7 @@ ud - print your text Upside Down
 
 =head1 VERSION
 
-version 1.21
+version 1.22
 
 =head1 SYNOPSIS
 

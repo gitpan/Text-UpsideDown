@@ -6,7 +6,7 @@ use charnames qw(:full);
 use Exporter qw(import);
 our @EXPORT = qw(upside_down);
 # ABSTRACT: Flip text upside-down using Unicode
-our $VERSION = '1.21'; # VERSION
+our $VERSION = '1.22'; # VERSION
 
 
 # Mapping taken from:
@@ -106,7 +106,7 @@ Text::UpsideDown - Flip text upside-down using Unicode
 
 =head1 VERSION
 
-version 1.21
+version 1.22
 
 =head1 SYNOPSIS
 
